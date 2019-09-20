@@ -4,7 +4,6 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "heroku-prebuild": "NPM_CONFIG_PRODUCTION=true",
     "start": "babel-node server.js",
     "dev": "nodemon --exec babel-node server.js"
   },
