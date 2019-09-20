@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "heroku-prebuild": "yarn install --production=false",
     "start": "babel-node server.js",
     "dev": "nodemon --exec babel-node server.js"
   },
