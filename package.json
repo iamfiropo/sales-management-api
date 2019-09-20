@@ -19,13 +19,13 @@
     "@babel/core": "^7.6.0",
     "@babel/node": "^7.6.1",
     "@babel/preset-env": "^7.6.0",
-    "@babel/register": "^7.6.0"
-  },
-  "devDependencies": {
+    "@babel/register": "^7.6.0",
     "babel-watch": "^7.0.0",
     "debug": "^4.1.1",
     "morgan": "^1.9.1",
     "nodemon": "^1.19.2"
+  },
+  "devDependencies": {
   },
   "engines": {
     "node": "10.16.3",
