@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "heroku-prebuild": "NPM_CONFIG_PRODUCTION=false",
-    "start": "DEBUG=http node index.js",
+    "start": "DEBUG=http babel-node index.js",
     "dev": "nodemon --exec babel-node index.js"
   },
   "dependencies": {
