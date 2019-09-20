@@ -4,7 +4,6 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "heroku-prebuild": "yarn install --production=true",
     "start": "babel-node server.js",
     "dev": "nodemon --exec babel-node server.js"
   },
@@ -15,14 +14,14 @@
     "jsonwebtoken": "^8.5.1",
     "regenerator-runtime": "^0.13.3",
     "swagger-jsdoc": "^3.4.0",
-    "swagger-ui-express": "^4.1.1"
-  },
-  "devDependencies": {
+    "swagger-ui-express": "^4.1.1",
     "@babel/cli": "^7.6.0",
     "@babel/core": "^7.6.0",
     "@babel/node": "^7.6.1",
     "@babel/preset-env": "^7.6.0",
     "@babel/register": "^7.6.0",
+  },
+  "devDependencies": {
     "babel-watch": "^7.0.0",
     "debug": "^4.1.1",
     "morgan": "^1.9.1",
