@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "heroku-prebuild": "NPM_CONFIG_PRODUCTION=false",
-    "start": "DEBUG=http babel-node index.js",
+    "start": "DEBUG=http node index.js",
     "dev": "nodemon --exec babel-node index.js"
   },
   "dependencies": {
@@ -29,6 +29,7 @@
     "nodemon": "^1.19.2"
   },
   "engines": {
-    "node": "10.16.3"
+    "node": "10.16.3",
+    "yarn": "1.17.3"
   }
 }
