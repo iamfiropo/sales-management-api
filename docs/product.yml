@@ -1,0 +1,88 @@
+paths:
+  /api/v1/products:
+    post:                  
+      tags:              
+        - Products       
+      summary: creates a new product
+      produces:
+      - application/json
+      parameters:        
+      - in: body         
+        name: product 
+        description: It enables an authenticated user to create an product
+        required: false
+        schema:
+          $ref: '#/definitions/product' 
+      responses:
+        201:
+          description: Successfully created
+        400:
+          description: Please fill all the required fields
+        500:
+          description: Internal server error
+
+    get:                  
+      tags:              
+        - Products       
+      summary: Get all products 
+      security:
+        - bearerAuth: []
+      produces:
+      - application/json  
+      responses:
+        200:
+          description: Successfully found all products
+        403:
+          description: Token required. Please sign in or register as a user
+        404:
+          description: No product found
+        500:
+          description: Internal server error
+
+  /api/v1/products/{product_id}:
+    get:                  
+      tags:              
+        - Products       
+      summary: View a specific product
+      security:
+        - bearerAuth: []
+      produces:
+      - application/json    
+      parameters:        
+      - in: path         
+        name: product_id
+        schema:
+          type: integer
+        required: true
+        description: It enables an authenticated user to view a specific product
+      responses:
+        200:
+          description: Successfully found all product
+        403:
+          description: Token required. Please sign in or register as a user
+        404:
+          description: No product found
+        500:
+          description: Internal server error
+
+definitions:
+  product:
+    type: object
+    required:
+      - name
+      - description
+      - price
+      - quantity
+    properties:
+      name:
+        type: string
+        example: rice
+      description:
+        type: string
+        example: rice foo
+      price:
+        type: integer
+        example: 2500
+      quantity:
+        type: integer
+        example: 3

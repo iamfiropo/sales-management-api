@@ -1,10 +1,13 @@
 import express from 'express';
 import logger from 'morgan';
 import 'regenerator-runtime/runtime';
+import swaggerJSDoc from 'swagger-jsdoc';
+import swaggerUI from 'swagger-ui-express';
 import Debug from 'debug';
 import { config } from 'dotenv';
 
 import Route from './server/routes/routes';
+import options from './docs/swagger';
 
 config();
 
@@ -28,6 +31,9 @@ app.get('/api/v1', (req, res) => {
 
 const router = express.Router();
 app.use('/api/v1', Route(logger, router));
+
+const swaggerSpec = swaggerJSDoc(options);
+app.use('/api/v1/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 
 app.listen(port, () => debug(`Server listening on port ${port}`));
 

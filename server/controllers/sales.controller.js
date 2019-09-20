@@ -18,7 +18,10 @@ class SalesController {
   }
 
   static async findAll(req, res) {
+    const is_admin = res.locals.user.is_admin;
+    // console.log('**********', res.locals.user);
     try {
+      if (!is_admin) return Response.handleError(403, 'You do not have access to this endpoint!!!', res);
       const listOfSales = await SalesModel.findAll();
       const sales = 
       listOfSales 
@@ -27,7 +30,7 @@ class SalesController {
         :
       Response.handleError(404, 'No sales found', res);
       return product;
-    } catch (error) {
+    } catch(error) {
       return Response.handleError(500, error.toString(), res)
     }
   }

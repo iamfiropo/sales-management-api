@@ -25,7 +25,6 @@ class SalesModel extends Model {
   async findOne() {
     try {
       const saleId = this.payload;
-      console.log('**********', saleId)
       const obj = SALES.find((sales) => {
         if (sales.customer_id !== saleId) {
           return false;

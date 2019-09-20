@@ -1,13 +1,17 @@
 import ProductModel from '../models/product.model';
 import Response from '../utils/helpers/response';
 import { PRODUCTS } from '../utils/data/product';
+import { inflateRawSync } from 'zlib';
 
 class ProductController {
 
   static async create(req, res) {
+    const is_admin = res.locals.user.is_admin;
+    console.log('**********', is_admin);
     try {
+      if (!is_admin) return Response.handleError(403, 'You do not have access to this endpoint!!!', res);
       const product = req.body;
-      product.product_id = PRODUCTS.length + 1;
+      product.product_id = PRODUCTS.length + 1; 
       product.created_on = new Date();
       const newProduct = new ProductModel({ ...product });
       newProduct.create();

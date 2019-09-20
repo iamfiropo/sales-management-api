@@ -1,0 +1,100 @@
+paths:
+  /api/v1/sales:
+    post:                  
+      tags:              
+        - Sales       
+      summary: creates a new sales order
+      produces:
+      - application/json
+      parameters:        
+      - in: body         
+        name: sales 
+        description: It enables an authenticated user to create a sales order
+        required: false
+        schema:
+          $ref: '#/definitions/sales' 
+      responses:
+        201:
+          description: Successfully created
+        400:
+          description: Please fill all the required fields
+        500:
+          description: Internal server error
+
+    get:                  
+      tags:              
+        - Sales       
+      summary: Get all sales 
+      security:
+        - bearerAuth: []
+      produces:
+      - application/json  
+      responses:
+        200:
+          description: Successfully found all sales orders
+        403:
+          description: Token required. Please sign in or register as a user
+        404:
+          description: No sales order found
+        500:
+          description: Internal server error
+
+  /api/v1/sales/{sale_id}:
+    get:                  
+      tags:              
+        - Sales       
+      summary: View a specific sales
+      security:
+        - bearerAuth: []
+      produces:
+      - application/json    
+      parameters:        
+      - in: path         
+        name: sale_id
+        schema:
+          type: integer
+        required: true
+        description: It enables an authenticated user to view a specific sales
+      responses:
+        200:
+          description: Successfully found all sales
+        403:
+          description: Token required. Please sign in or register as a user
+        404:
+          description: No sales found
+        500:
+          description: Internal server error
+
+definitions:
+  sales:
+    type: object
+    required:
+      - email
+      - first_name
+      - last_name
+      - phone_number
+      - street
+      - city
+      - state
+    properties:
+      email:
+        type: string
+        example: testapi-docs@test.com
+      first_name:
+        type: string
+        example: Ropo
+      last_name:
+        type: string
+        example: Olatujoye
+      phone_number:
+        type: integer
+        example: 08089876543
+      street:
+        type: string
+        example: 2, ologo street
+      city:
+        type: string
+        example: Igbekebo
+      state:
+        type: string
+        example: Abuja
