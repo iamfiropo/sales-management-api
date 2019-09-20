@@ -14,7 +14,9 @@
     "jsonwebtoken": "^8.5.1",
     "regenerator-runtime": "^0.13.3",
     "swagger-jsdoc": "^3.4.0",
-    "swagger-ui-express": "^4.1.1",
+    "swagger-ui-express": "^4.1.1"
+  },
+  "devDependencies": {
     "@babel/cli": "^7.6.0",
     "@babel/core": "^7.6.0",
     "@babel/node": "^7.6.1",
@@ -24,8 +26,6 @@
     "debug": "^4.1.1",
     "morgan": "^1.9.1",
     "nodemon": "^1.19.2"
-  },
-  "devDependencies": {
   },
   "engines": {
     "node": "10.16.3",
