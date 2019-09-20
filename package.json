@@ -4,11 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "babel-node index.js",
+    "heroku-prebuild": "NPM_CONFIG_PRODUCTION=false",
+    "start": "DEBUG=http babel-node index.js",
     "dev": "nodemon --exec babel-node index.js"
   },
   "dependencies": {
-    "@babel/node": "^7.6.1",
     "bcrypt": "^3.0.6",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
@@ -20,6 +20,7 @@
   "devDependencies": {
     "@babel/cli": "^7.6.0",
     "@babel/core": "^7.6.0",
+    "@babel/node": "^7.6.1",
     "@babel/preset-env": "^7.6.0",
     "@babel/register": "^7.6.0",
     "babel-watch": "^7.0.0",
