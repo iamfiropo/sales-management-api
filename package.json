@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "heroku-prebuild": "NPM_CONFIG_PRODUCTION=true",
-    "start": "babel-node index.js",
-    "dev": "nodemon --exec babel-node index.js"
+    "start": "babel-node server.js",
+    "dev": "nodemon --exec babel-node server.js"
   },
   "dependencies": {
     "bcrypt": "^3.0.6",
